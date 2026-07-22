@@ -15,11 +15,25 @@ area.
 
 ## Run it
 
+From the directory containing your downloaded course, this one line downloads
+the engine and displays the complete coding-agent contract:
+
+```bash
+git clone https://github.com/WindowsRefundDay/course-engine.git && cd course-engine && cat AGENTS.md
+```
+
+Then tell any coding agent:
+
+```text
+Read AGENTS.md and set up this course completely. Continue until the learner
+interface is running; ask me only when AGENTS.md defines a genuine blocker.
+```
+
 Place a downloaded course beside this repository, then run:
 
 ```bash
 npm install
-npm run course:start
+npm run course:start -- --visual-qa disabled
 ```
 
 This single command discovers the source, compiles it deterministically,

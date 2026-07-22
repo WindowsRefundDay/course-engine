@@ -29,6 +29,45 @@ obvious command, and land in a polished course with units, lessons, one-step
 navigation, source-faithful resources, stable progress, and no exposed compiler
 administration.
 
+## Default first-run directive
+
+When an agent is told only `Read AGENTS.md and set up this course`, treat that
+as authorization to complete the safe local setup workflow end to end.
+
+The agent must:
+
+1. Inspect this repository and the immediately surrounding directory before
+   asking questions.
+2. Automatically locate the downloaded course ZIP, extracted course directory,
+   PDFs, or website configuration and infer all metadata available in the
+   source.
+3. Ask exactly one question at a time only for a genuine unresolved blocker,
+   such as multiple equally plausible sources, required permission to transmit
+   content, or missing credential references for a provider the user explicitly
+   enabled.
+4. Never ask the user to identify an obvious course file, state an inferable
+   learner level, choose whether compilation is source-faithful, copy internal
+   IDs, inspect hashes, operate a compiler dashboard, or paste API keys in chat.
+5. Keep compilation permanently source-faithful. AI may make cited,
+   evidence-bound representation suggestions but must never construct a
+   different curriculum.
+6. Install dependencies, validate the source, configure the course, compile,
+   repair resolvable validation failures, activate the exact validated artifact,
+   start the local services, and open the learner interface.
+7. Use `--visual-qa disabled` by default. Do not install or run Playwright,
+   Puppeteer, Chrome automation, or another browser-control system unless the
+   user explicitly requests visual browser QA. Always run the nonvisual lint,
+   build, API, rendered-HTML, compiler, and validation checks that are available.
+8. Stop only when the learner course is usable or one precise user decision is
+   truly required.
+
+The normal command is:
+
+```bash
+npm install
+npm run course:start -- --visual-qa disabled
+```
+
 ## Product invariants — do not negotiate these
 
 1. **The course source is authoritative.** Compilation is always source-faithful.
@@ -62,7 +101,7 @@ administration.
    video, transcript, problem, solution, interactive, and source link belongs
    inside the lesson step justified by its source relationship, or is explicitly
    excluded with a recorded reason.
-8. **Visual browser QA is capability-based and configurable.** Use
+8. **Visual browser QA is optional and configurable.** Use
    `verification.visual_qa` with exactly `auto | enabled | disabled`:
    - `auto` (default): run browser QA when the active agent/runtime exposes
      browser automation; otherwise run build, rendered-HTML, API, and smoke
@@ -71,6 +110,8 @@ administration.
    - `enabled`: browser capability is required; absence is a clear blocking issue.
    - `disabled`: skip browser automation intentionally; nonvisual verification
      still runs.
+   Coding agents must choose `disabled` unless the user explicitly requests
+   browser automation.
 9. **Do not ask the learner to manage IDs or services.** The launcher captures
    course IDs, starts required local processes, waits for readiness, selects the
    active course, and opens `/` itself.
