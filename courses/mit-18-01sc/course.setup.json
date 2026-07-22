@@ -1,0 +1,55 @@
+{
+  "compiler_ai": {
+    "enabled": false
+  },
+  "course": {
+    "code": "18.01SC",
+    "learner_level": "undergraduate",
+    "learning_goals": [
+      "Understand differentiation and integration of functions of one variable",
+      "Apply calculus techniques to scientific and engineering problems"
+    ],
+    "prerequisites": [
+      "Algebra",
+      "Trigonometry"
+    ],
+    "slug": "mit-18-01sc",
+    "term": "Fall 2010",
+    "title": "Single Variable Calculus"
+  },
+  "discovery": {
+    "confidence": "high",
+    "evidence": [
+      {
+        "detail": "MIT OCW archive structure (data.json + pages)",
+        "kind": "mit-ocw-signature"
+      },
+      {
+        "detail": "Title from source metadata: Single Variable Calculus",
+        "kind": "inferred-title"
+      }
+    ],
+    "uncertainties": []
+  },
+  "parser": {
+    "provider": "builtin"
+  },
+  "presentation": {
+    "renderer": "default",
+    "theme": "academic"
+  },
+  "privacy": {
+    "allow_cloud": false
+  },
+  "schema_version": "course-engine-setup/2",
+  "source": {
+    "location": "../../..",
+    "type": "directory"
+  },
+  "validation": {
+    "strictness": "strict"
+  },
+  "verification": {
+    "visual_qa": "auto"
+  }
+}

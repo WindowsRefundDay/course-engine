@@ -1,0 +1,56 @@
+{
+  "compiler_ai": {
+    "enabled": false
+  },
+  "course": {
+    "code": "18.02SC",
+    "learner_level": "undergraduate",
+    "learning_goals": [
+      "Understand multivariable differential and integral calculus",
+      "Apply vectors, matrices, partial derivatives, and multiple integrals"
+    ],
+    "prerequisites": [
+      "Single-variable calculus",
+      "Algebra",
+      "Trigonometry"
+    ],
+    "slug": "mit-18-02sc",
+    "term": "Fall 2010",
+    "title": "Multivariable Calculus"
+  },
+  "discovery": {
+    "confidence": "high",
+    "evidence": [
+      {
+        "detail": "MIT OCW archive structure inside ZIP",
+        "kind": "mit-ocw-zip"
+      },
+      {
+        "detail": "Title from source metadata: Multivariable Calculus",
+        "kind": "inferred-title"
+      }
+    ],
+    "uncertainties": []
+  },
+  "parser": {
+    "provider": "builtin"
+  },
+  "presentation": {
+    "renderer": "default",
+    "theme": "academic"
+  },
+  "privacy": {
+    "allow_cloud": false
+  },
+  "schema_version": "course-engine-setup/2",
+  "source": {
+    "location": "../../../../../18.02sc-fall-2010.zip",
+    "type": "zip"
+  },
+  "validation": {
+    "strictness": "strict"
+  },
+  "verification": {
+    "visual_qa": "auto"
+  }
+}

@@ -1,0 +1,57 @@
+{
+  "name": "site-creator-vinext-starter",
+  "version": "0.1.0",
+  "private": true,
+  "engines": {
+    "node": ">=22.13.0"
+  },
+  "scripts": {
+    "dev": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext dev",
+    "build": "WRANGLER_LOG_PATH=.wrangler/wrangler.log vinext build",
+    "start": "node --experimental-strip-types scripts/bootstrap.ts",
+    "test": "npm run build && node --test tests/rendered-html.test.mjs tests/bootstrap.test.mjs tests/active-course-api.test.mjs",
+    "lint": "eslint . --ignore-pattern dist --ignore-pattern .next",
+    "db:generate": "drizzle-kit generate",
+    "course:start": "node --experimental-strip-types scripts/bootstrap.ts",
+    "course:ingest": "node --experimental-strip-types scripts/ingest-ocw.ts",
+    "course:compile": "node --experimental-strip-types scripts/compile-ocw.ts .. public/course-data/calculus.json courses/mit-18-01sc/compilation.json",
+    "course:validate": "node --experimental-strip-types scripts/validate-course.ts",
+    "course:compiler-test": "node --test --experimental-strip-types scripts/compiler/compiler.test.ts scripts/ingest-ocw.test.ts",
+    "course:test-second": "node scripts/test-second-course.mjs",
+    "course:qa": "npm run course:compile && npm run course:validate && npm run course:compiler-test",
+    "engine:doctor": "PYTHONPATH=services/engine python3 -m course_engine.cli doctor",
+    "engine:init": "PYTHONPATH=services/engine python3 -m course_engine.cli init .. --title 'Single Variable Calculus'",
+    "engine:api": "PYTHONPATH=services/engine uv run --project services/engine uvicorn course_engine.api:app --host 127.0.0.1 --port 8000",
+    "engine:worker": "PYTHONPATH=services/engine uv run --project services/engine python -m course_engine.cli worker",
+    "engine:setup": "PYTHONPATH=services/engine python3 -m course_engine.cli setup",
+    "engine:bootstrap": "PYTHONPATH=services/engine python3 -m course_engine.cli bootstrap",
+    "engine:test": "uv run --project services/engine --with pytest --with httpx pytest services/engine/tests -q"
+  },
+  "dependencies": {
+    "@phosphor-icons/react": "^2.1.10",
+    "dexie": "^4.4.4",
+    "drizzle-orm": "0.45.2",
+    "next": "16.2.6",
+    "react": "19.2.6",
+    "react-dom": "19.2.6"
+  },
+  "devDependencies": {
+    "@cloudflare/vite-plugin": "1.37.1",
+    "@tailwindcss/postcss": "4.2.1",
+    "@types/node": "22.19.19",
+    "@types/react": "19.2.14",
+    "@types/react-dom": "19.2.3",
+    "@vitejs/plugin-react": "6.0.2",
+    "@vitejs/plugin-rsc": "0.5.26",
+    "drizzle-kit": "0.31.10",
+    "eslint": "9.39.4",
+    "eslint-config-next": "16.2.6",
+    "react-server-dom-webpack": "19.2.6",
+    "tailwindcss": "4.2.1",
+    "typescript": "5.9.3",
+    "vinext": "0.0.50",
+    "vite": "8.0.13",
+    "wrangler": "4.92.0"
+  },
+  "type": "module"
+}

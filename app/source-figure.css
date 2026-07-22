@@ -1,0 +1,74 @@
+/* Source figure — MIT OCW mathlet embed and its context block.
+   Uses the shared COURSE THEME tokens from globals.css. */
+
+.source-figure {
+  margin: 32px 0 28px;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  overflow: hidden;
+  background: var(--surface);
+}
+
+.source-figure .figure-context {
+  padding: 20px 22px 16px;
+  border-bottom: 1px solid var(--line);
+}
+
+.source-figure .figure-context p {
+  margin: 0 0 8px;
+  color: var(--accent);
+  font: 600 10px var(--font-geist-mono), monospace;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.source-figure .figure-context h3 {
+  margin: 0 0 8px;
+  color: var(--ink);
+  font-size: 21px;
+  line-height: 1.15;
+  font-weight: 650;
+  letter-spacing: -0.03em;
+}
+
+.source-figure .figure-context span {
+  display: block;
+  max-width: 62ch;
+  color: var(--muted);
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.source-figure > img {
+  display: block;
+  width: 100%;
+  max-height: 390px;
+  object-fit: contain;
+  background: var(--paper);
+  padding: 20px;
+}
+
+.source-figure figcaption {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 12px 16px;
+  border-top: 1px solid var(--line);
+  font-size: 11.5px;
+  color: var(--muted);
+}
+
+.source-figure a {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 600;
+  transition: color 0.16s var(--ease);
+}
+
+.source-figure a:hover {
+  color: var(--accent-strong);
+}
